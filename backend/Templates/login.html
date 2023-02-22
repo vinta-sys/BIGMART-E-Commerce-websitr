@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGINPAGE</title>
+</head>
+<body bgcolor="grey">
+    <div align="center">
+        <h1>Login</h1>
+             <p>login here....!</p><br>
+
+            <form method="post" action="{% url 'adminlogin' %}"  enctype="multipart/form-data">
+                <form method="post" action="{% url 'adminlogout' %}"  enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text"placeholder="username"class="txt" name="username"><br><br>
+                <input type="password"placeholder="password"class="txt" name="password"><br><br><br>
+                <button type="submit" class="btn btn-success">okay</button>
+
+            </form>
+                </form>
+
+                </div>
+
+
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {% if messages %}
+      {% for message in messages  %}
+
+      {% if message.tags == 'warning' %}
+      <script>
+          swal('{{message}}','','warning');
+      </script>
+
+      {% elif message.tags == 'error' %}
+      <script>
+          swal('{{message}}','','error');
+      </script>
+
+      {% else%}
+      <script>
+          swal('{{message}}','','success');
+      </script>
+
+      {% endif %}
+      {% endfor %} {% endif %}
+
+</body>
+
+<style>
+    div{
+            background-color: aliceblue;
+            height: 400px;
+            width: 300px;
+            text-align: center;
+            margin-left: 500px;
+            margin-top: 100px;
+            padding-top: 50px;
+        }
+     button{
+            background-color: grey;
+            width: 100px;
+            height: 30px;
+        }
+
+
+</style>
+
+</html>
